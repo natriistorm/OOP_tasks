@@ -4,8 +4,8 @@
 #include <string>
 const size_t chunkSize = 8;
 template<typename T>
-class Deque {
 
+class Deque {
 public:
     template<bool Const>
     class myiterator;
@@ -214,7 +214,6 @@ public:
             ptrOnHead = &ptrHead;
             ptrOnTail = &ptrTail;
         }
-
     private:
         int value = 0;
         int curPos = 0;
@@ -228,6 +227,16 @@ private:
     std::vector<std::vector<T>*> tail;
     myiterator<false> beginDeque;
     myiterator<false> endDeque;
+    
+    
+    void createVectors(const T& elem) {
+        for (int i = 0; i < 2; ++i) {
+            std::vector<T>* ptrVec = new std::vector<T>(chunkSize, elem);
+            std::vector<T>* ptrTail = new std::vector<T>(chunkSize, elem);
+            head.push_back(ptrVec);
+            tail.push_back(ptrTail);
+        }
+    }
 
 public:
     Deque():sz(0) {
@@ -500,17 +509,6 @@ public:
     reverse_myiterator rbegin() {
         return reverse_myiterator(end());
     }
-
-private:
-    void createVectors(const T& elem) {
-        for (int i = 0; i < 2; ++i) {
-            std::vector<T>* ptrVec = new std::vector<T>(chunkSize, elem);
-            std::vector<T>* ptrTail = new std::vector<T>(chunkSize, elem);
-            head.push_back(ptrVec);
-            tail.push_back(ptrTail);
-        }
-    }
-
 };
 
 
