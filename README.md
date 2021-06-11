@@ -14,6 +14,8 @@ List - помимо самого std::list реализованы два вид 
 
 C std::list
 Tests log: Results with std::allocator: 290 194 212 210 221  ms, results with FastAllocator: 68 67 68 67 67  ms
+
+
 С собственным List
 Tests log: Results with std::allocator: 182 180 177 180 201  ms, results with FastAllocator: 59 58 58 57 61  ms 
 
