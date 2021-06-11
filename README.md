@@ -12,11 +12,15 @@ List - помимо самого std::list реализованы два вид 
 фикисированного размера (pool-allocator), второй, реализованный над Fixed решает, выделять ли новый участок памяти или взять уже выделенный. По сравнению со стандартными аллокаторми std::list получен прирост в скорости работы 
 
 
-C std::list
+C std::list:
+
+
 Tests log: Results with std::allocator: 290 194 212 210 221  ms, results with FastAllocator: 68 67 68 67 67  ms
 
 
-С собственным List
+С собственным List:
+
+
 Tests log: Results with std::allocator: 182 180 177 180 201  ms, results with FastAllocator: 59 58 58 57 61  ms 
 
 UnorderedMap - аналог std::unordered_map, реализован на основе собственного List, с поддержкой собственных аллокаторов
